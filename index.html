@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0A1628" />
+  <title>Менеджер з продажів — DMT Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<!-- ===================== PAGE 1: HERO ===================== -->
+<div class="page" id="pageHero">
+
+  <!-- TOP: dark navy visual area -->
+  <div class="hero-top">
+    <div class="hero-canvas">
+      <div class="hc-glow hc-g1"></div>
+      <div class="hc-glow hc-g2"></div>
+      <div class="hc-glow hc-g3"></div>
+      <div class="hc-grid"></div>
+      <div class="hc-dots"></div>
+    </div>
+
+    <div class="hero-top-inner">
+      <div class="hero-logo">DMT<span>Agency</span></div>
+
+      <div class="hero-main">
+        <div class="hero-tag">🔥&nbsp; Відкрита вакансія</div>
+        <h1 class="hero-headline">
+          ЗАРОБЛЯЙ<br>
+          <span class="hero-amount"> від $600+<span class="hero-plus"></span></span>
+        </h1>
+        <p class="hero-role">Оператор чату / менеджер з продажів</p>
+        <p class="hero-sub">спілкуйся, продавай та заробляй</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: content card -->
+  <div class="hero-bottom">
+    <h2 class="hb-title">
+      Шукаєш роботу<br>
+      <strong>онлайн?</strong> 
+    </h2>
+    <p class="hb-desc">
+      Спробуй себе у ролі оператору чата —
+      стабільний дохід у валюті та жодних обмежень у рості -  без виходу з дому.
+    </p>
+
+    <ul class="benefits">
+      <li>💰 дохід від <strong>$600+</strong></li>
+      <li>⏰ гнучкий графік: <strong>5/2</strong></li>
+      <li>🎓 навчаємо з нуля <strong>особистий ментор</strong></li>
+      <li>📱 без дзвінків — тільки чат</li>
+      <li>🌍 <strong>ДИСТАНЦІЙНО</strong></li>
+    </ul>
+
+    <button class="cta-btn" onclick="startQuiz()">
+      Відповісти на короткі заитання
+    </button>
+
+    <div class="urgency-badge">
+      <span class="ub-icon">⏰</span>
+      <span>Остання хвиля набору у цьому кварталі — не пропусти!</span>
+    </div>
+
+    <p class="hero-footer">Terms of use and Privacy policy &nbsp;·&nbsp; made by DMT Agency</p>
+  </div>
+
+</div>
+
+
+<!-- ===================== PAGE 2: QUIZ ===================== -->
+<div class="page hidden" id="pageQuiz">
+
+  <!-- Thin progress bar -->
+  <div class="top-bar">
+    <div class="top-bar-fill" id="topBarFill"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="qz-header">
+    <div class="logo">DMT<span>Agency</span></div>
+    <div class="qz-stepcount" id="qzStepCount">1 з 4</div>
+  </div>
+
+  <!-- Slides -->
+  <div class="qz-body" id="qzBody">
+
+    <!-- Q1: Вік (slider) -->
+    <div class="slide active" id="slide-1">
+      <div class="slide-inner">
+        <h2 class="slide-q">Скільки тобі років? 🎂</h2>
+        <p class="slide-hint">Вкажи будь ласка свій вік</p>
+        <div class="slider-box">
+          <div class="slider-bubble-wrap">
+            <div class="slider-bubble" id="sliderBubble">24</div>
+          </div>
+          <input
+            type="range"
+            id="ageSlider"
+            class="age-slider"
+            min="18" max="50" value="24"
+            oninput="updateSlider(this)"
+          />
+          <div class="slider-ends">
+            <span>18</span>
+            <span>50</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2: Англійська -->
+    <div class="slide" id="slide-2">
+      <div class="slide-inner">
+        <h2 class="slide-q">Який у тебе рівень<br>Англійської? 🌐</h2>
+        <p class="slide-hint">Обери будь ласка свій рівень англійської мови.</p>
+        <div class="chips-grid">
+          <button class="chip-item" onclick="pickOpt(this,'english','Не володію',2)">Не володію 😊</button>
+          <button class="chip-item" onclick="pickOpt(this,'english','Базовий A1',2)">Базовий A1 🎀</button>
+          <button class="chip-item" onclick="pickOpt(this,'english','Середній B1',2)">Середній B1 🙂</button>
+          <button class="chip-item" onclick="pickOpt(this,'english','Вище середнього B2',2)">Вище середнього B2 🤩</button>
+          <button class="chip-item" onclick="pickOpt(this,'english','Досконалий C1/C2',2)">Досконалий C1/C2 😍</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3: ПК / ноутбук -->
+    <div class="slide" id="slide-3">
+      <div class="slide-inner">
+        <h2 class="slide-q">Чи є у тебе ноутбук або<br>комп'ютер для роботи? 💻</h2>
+        <p class="slide-hint">Обери будь ласка свій варіант</p>
+        <div class="chips-grid">
+          <button class="chip-item" onclick="pickOpt(this,'pc','Так, є ноутбук',3)">Так, є ноутбук 🤩</button>
+          <button class="chip-item" onclick="pickOpt(this,'pc','Так, є комп\'ютер',3)">Так, є комп'ютер 🤓</button>
+          <button class="chip-item" onclick="pickOpt(this,'pc','Є і комп\'ютер, і ноутбук',3)">Є і комп'ютер, і ноутбук 💪</button>
+          <button class="chip-item" onclick="pickOpt(this,'pc','Є, але не завжди',3)">Є, але не завжди 😅</button>
+          <button class="chip-item" onclick="pickOpt(this,'pc','Немає',3)">Немає 😟</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4: Досвід оператора чату -->
+    <div class="slide" id="slide-4">
+      <div class="slide-inner">
+        <h2 class="slide-q">Чи мали ви досвід у роботі<br>оператором чату? 💬</h2>
+        <p class="slide-hint">Обери будь ласка свій варіант</p>
+        <div class="chips-grid">
+          <button class="chip-item" onclick="pickOpt(this,'experience','Так, мав але невеликий',4)">Так, мав але невеликий 🙂</button>
+          <button class="chip-item" onclick="pickOpt(this,'experience','Так, мав 1 рік+',4)">Так, мав 1 рік+ 🤩</button>
+          <button class="chip-item" onclick="pickOpt(this,'experience','Ні, не мав але мав у схожій сфері',4)">Ні, не мав але мав у схожій сфері 😊</button>
+          <button class="chip-item" onclick="pickOpt(this,'experience','Ні, не мав зовсім але цікавить',4)">Ні, не мав зовсім але цікавить дізнатися 🎯</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5: Контакти -->
+    <div class="slide" id="slide-5">
+      <div class="slide-inner">
+        <h2 class="slide-q">Залиш свої контакти, щоб ми могли зв'язатися з тобою 💌</h2>
+        <p class="slide-hint">
+          Введи номер телефону або нік у телеграм —
+          ми зв'яжемось у зручний для тебе час 💙
+        </p>
+
+        <div class="urgency-badge urgency-badge--sm">
+          <span class="ub-icon">⏰</span>
+          <span>Остання хвиля набору у цьому кварталі — не пропусти!</span>
+        </div>
+
+        <div class="cform">
+          <div class="cfield">
+            <input type="text" id="inputName" class="cinput" placeholder="Ім'я" autocomplete="given-name" />
+          </div>
+          <div class="cfield cfield--phone">
+            <div class="phone-prefix">
+              <span>🇺🇦</span>
+              <span>+380</span>
+              <span class="phone-arrow">▾</span>
+            </div>
+            <input type="tel" id="inputPhone" class="cinput cinput--phone" placeholder="хх ххх хххх" autocomplete="tel" />
+          </div>
+          <div class="cfield">
+            <input type="text" id="inputTelegram" class="cinput" placeholder="@нік у телеграм" autocomplete="off" />
+          </div>
+
+          <label class="ccheck">
+            <input type="checkbox" id="privacyBox" checked />
+            <span>I agree with <a href="#" class="ccheck-link">the terms of use and the privacy policy</a> *</span>
+          </label>
+
+          <button class="send-btn" id="sendBtn" onclick="submitForm()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Готово!
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /qz-body -->
+
+  <!-- Bottom navigation -->
+  <div class="qz-nav" id="qzNav">
+    <button class="qn-gift" onclick="toggleGift()" aria-label="Бонус">⏰</button>
+    <button class="qn-back" id="btnBack" onclick="goBack()" aria-label="Назад" disabled>←</button>
+    <button class="qn-next" id="btnNext" onclick="goNext()" aria-label="Далі">→</button>
+  </div>
+
+</div><!-- /pageQuiz -->
+
+
+<!-- ===================== PAGE 3: THANK YOU ===================== -->
+<div class="page hidden" id="pageTY">
+  <div class="ty-wrap">
+
+    <div class="ty-emoji">💕</div>
+
+    <h2 class="ty-title">Дякуємо 💕 Усе готово!</h2>
+
+    <p class="ty-text">
+      Ми отримали твої відповіді і скоро зв'яжемося з тобою,
+      щоб обговорити наступні кроки.
+    </p>
+    <p class="ty-text">
+      Готуйся до цікавих можливостей ✨ і нового рівня доходу!
+    </p>
+    <p class="ty-text">
+      Також ви маєте можливість відразу написати нам у Telegram і дізнатися всі деталі без очікування.
+    </p>
+
+    <a href="https://t.me/YOUR_CHANNEL" class="tg-btn" id="tgBtn" target="_blank" rel="noopener">
+      Напиши нам у Telegram
+    </a>
+
+    <div class="urgency-badge">
+      <span class="ub-icon">⏰</span>
+      <span>Остання хвиля набору у цьому кварталі — не пропусти!</span>
+    </div>
+
+    <div class="ty-fb">
+      <a href="#" class="ty-fb-link" aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388
+          10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007
+          1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83
+          c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385
+          C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+    </div>
+
+    <p class="ty-footer">Terms of use and Privacy policy &nbsp;·&nbsp; made for DMT Agency</p>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
