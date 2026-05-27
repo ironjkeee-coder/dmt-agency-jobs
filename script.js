@@ -268,7 +268,9 @@ async function submitForm() {
 
   const name  = nameEl.value.trim();
   const phone = phoneEl.value.trim();
-  const tg    = tgEl.value.trim();
+  const tgRaw = tgEl.value.trim();
+  // Якщо юзер ввів без @ — додаємо; якщо вже є @ — залишаємо як є
+  const tg    = tgRaw && !tgRaw.startsWith("@") ? "@" + tgRaw : tgRaw;
 
   // Clear old errors
   [nameEl, phoneEl, tgEl].forEach(el => el.classList.remove("error"));
